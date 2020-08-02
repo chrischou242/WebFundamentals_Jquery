@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+        <script>
+        $(document).ready(function () {
+                var htmlstring=""
+
+                for (var id=1;id<152;id++){
+                    htmlstring=htmlstring +"<img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+id+".png'dexno='"+id+"'>"
+                }
+                console.log(htmlstring);
+                $("#pokemans").append(htmlstring);
+
+                $("img").click(function(){
+                    var dexno = $(this).attr("dexno");
+                    console.log(dexno)
+                    $.get('https://pokeapi.co/api/v2/pokemon/'+dexno, function(data){
+                        console.log(data)
+                        $('.temp').hide();
+                        $('#name').append('<h2 class="temp">name: '+data.name+'</h2>');
+                        $('#pic').append('<img class="temp" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + dexno + '.png">')
+                        for(var i = 0; i<data.types.length;i++){
+                            $('#type').append('<h2 class="temp">types: '+data.types[i].type.name+'</h2>');
+                        }
+                        $('#height').append('<h2 class="temp">height: '+data.height+'</h2>');
+                        $('#weight').append('<h2 class="temp">weight: '+data.weight+'</h2>');
+                    })
+                    
+                    // $(data.name).append($('#name'))
+
+                })
+                // $.get(https://pokeapi.co/api/v2/pokemon/+"id"
+                // .after()
+                // $.get(https://pokeapi.co/api/v2/pokemon/+"id"
+                // $("name").after(data.name, ""
+                // img url
+                // data.height
+                // data.weight
+
+                // "<img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+id+".png' id="'+id'">"
+
+        });
+    </script>
+    <title>pokemon</title>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="pokemans"></div>
+
+        </div>
+        <div class="box">
+            <h1>Whos that pokemon?!</h1>
+            <h2 id="name"></h2>
+            <div id="pic"></div>
+            <h3 id="type"></h3>
+            <h3 id="height"></h3>
+            <h3 id="weight"></h3>
+        </div>
+</body>
+
+</html>
+
+<!-- name, sprite, type, height, weight -->

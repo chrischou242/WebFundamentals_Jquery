@@ -1,0 +1,23 @@
+*{
+    margin:0;
+    margin:auto;
+}
+
+.wrapper{
+    background-color: white;
+    width: 970px;
+    
+}
+
+
+.size{
+    width:200px;
+    height:200px ;
+}
+
+
+.size{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}

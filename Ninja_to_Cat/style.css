@@ -1,0 +1,22 @@
+*{
+    margin:0;
+    margin:auto;
+}
+
+.wrapper{
+   
+    background-color:white;
+    
+}
+
+img{
+    margin: 10px;
+    width: 100px;
+    
+}
+
+.picture{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
